@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback | SQLi Playground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .feedback-container {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.5);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #e2e8f0;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            background: #334155;
+            color: white;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #3b82f6;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #2563eb;
+        }
+        .submitted {
+            margin-top: 20px;
+            background: #334155;
+            padding: 15px;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+        .link {
+            margin-top: 12px;
+            text-align: center;
+        }
+        .link a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <h2>Submit Feedback</h2>
+
+        <form method="POST" action="/feedback">
+            <label for="feedback">Your Feedback:</label><br>
+            <textarea name="feedback" rows="4" required></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if feedback_input %}
+        <div class="submitted">
+            <strong>You submitted:</strong><br>
+            {{ feedback_input | safe }}
+        </div>
+        {% endif %}
+
+        <div class="link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

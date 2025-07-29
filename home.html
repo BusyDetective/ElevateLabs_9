@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQLi Playground - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-400">SQLi Playground</h1>
+            <div class="space-x-6 text-sm">
+                <a href="/" class="hover:text-yellow-400">Home</a>
+                <a href="/login" class="hover:text-yellow-400">Login</a>
+                <a href="/search" class="hover:text-yellow-400">Search</a>
+                <a href="/feedback" class="hover:text-yellow-400">Feedback</a>
+                <a href="/scanner" class="hover:text-yellow-400">Scanner</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center">
+        <div class="bg-gray-800 rounded-2xl shadow-lg p-10 max-w-2xl text-center border border-gray-700">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-6">Welcome to SQLi Playground</h2>
+            <p class="text-gray-300 text-lg mb-4">
+                This is a safe and educational environment to test and understand:
+            </p>
+            <ul class="text-left text-gray-300 mb-4 list-disc list-inside">
+                <li><strong class="text-yellow-300">SQL Injection (SQLi)</strong></li>
+                <li><strong class="text-yellow-300">Cross-Site Scripting (XSS)</strong></li>
+                <li><strong class="text-yellow-300">Cross-Site Request Forgery (CSRF)</strong></li>
+                <li>And other common web vulnerabilities.</li>
+            </ul>
+            <p class="text-gray-400">
+                Use the navigation above to explore different parts of the application, practice ethical hacking,
+                sharpen your skills, and learn how to prevent common web security flaws.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 py-4 border-t border-gray-800">
+        &copy; 2025 SQLi Playground. For Educational Use Only.
+    </footer>
+
+</body>
+</html>

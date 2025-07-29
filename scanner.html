@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Vulnerability Scanner - InsecureStore{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 style="color: var(--highlight); margin-bottom: 20px;">🛡 Vulnerability Scanner</h2>
+
+  <p style="color: #94a3b8; margin-bottom: 10px;">
+    Enter the URL of a web page to scan for vulnerabilities like SQL Injection, XSS, etc.
+  </p>
+
+  <form method="post" action="/scanner" style="margin-bottom: 30px;">
+    <input type="text" name="target" placeholder="Enter full URL to scan (e.g., http://localhost:5000/login)"
+           style="padding: 10px; border-radius: 5px; border: 1px solid #475569; width: 100%; max-width: 600px;">
+    <input type="submit" value="Scan"
+           style="margin-top: 10px; padding: 10px 20px; border-radius: 5px; background-color: green; color: white; border: none;">
+  </form>
+
+  {% if findings %}
+    <h3 style="color: #38bdf8;">🔎 Scan Results:</h3>
+
+    <!-- Styled PDF Download Button -->
+    <a href="{{ url_for('download_report') }}"
+       style="display: inline-block; margin-bottom: 15px; padding: 10px 16px; background-color: #3b82f6; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;">
+       📄 Download Report (PDF)
+    </a>
+
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px; color: #e2e8f0;">
+        <thead style="background-color: #334155;">
+          <tr>
+            <th style="padding: 10px; border: 1px solid #475569;">URL</th>
+            <th style="padding: 10px; border: 1px solid #475569;">Parameter</th>
+            <th style="padding: 10px; border: 1px solid #475569;">Payload</th>
+            <th style="padding: 10px; border: 1px solid #475569;">Vulnerability</th>
+            <th style="padding: 10px; border: 1px solid #475569;">Severity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in findings %}
+          <tr>
+            <td style="padding: 10px; border: 1px solid #475569;">{{ f.url }}</td>
+            <td style="padding: 10px; border: 1px solid #475569;">{{ f.parameter }}</td>
+            <td style="padding: 10px; border: 1px solid #475569;">{{ f.payload }}</td>
+            <td style="padding: 10px; border: 1px solid #475569;">{{ f.vuln_type }}</td>
+            <td style="padding: 10px; border: 1px solid #475569; color:
+              {% if f.severity == 'High' %}#f87171
+              {% elif f.severity == 'Medium' %}#facc15
+              {% else %}#4ade80
+              {% endif %}; font-weight: bold;">
+              {{ f.severity }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  {% elif findings is defined %}
+    <p style="color: #94a3b8;">No vulnerabilities found at this target.</p>
+  {% endif %}
+
+  <div style="margin-top: 30px;">
+    <a href="/" style="color: var(--link);">← Back to Home</a>
+  </div>
+</div>
+{% endblock %}
+
