@@ -22,32 +22,7 @@ A lightweight **Web Application Vulnerability Scanner** with a web-based interfa
 
 ## 📁 Project Structure
 
-WebVulnScanner/
-├── app.py # Main Flask application
-├── setup_db.py # Sets up dummy database
-├── database.db # Sample SQLite DB
-├── scanner/
-│ ├── init.py
-│ ├── scanner_core.py # Core scanner logic
-│ ├── payloads.py # SQLi & XSS payloads
-│ └── static/ # Internal assets (if any)
-├── static/
-│ └── images/ # UI Screenshots or Icons
-├── templates/
-│ ├── base.html
-│ ├── home.html
-│ ├── scanner.html # Shows scan results
-│ ├── feedback.html # XSS vulnerable page
-│ ├── login.html # SQLi vulnerable page
-│ └── search.html
-├── screenshots/
-│ ├── homepage.png
-│ ├── scannerpage.png
-│ └── scanreport.png
-├── Project_Report_SQLi_Scanner.pdf
-├── requirements.txt
-└── README.md
-
+<pre> ```text ElevateLabs_9/ ├── app.py ├── setup_db.py ├── database.db ├── scanner/ │ ├── __init__.py │ ├── scanner_core.py │ ├── payloads.py │ └── static/ ├── static/ │ └── images/ ├── templates/ │ ├── base.html │ ├── home.html │ ├── scanner.html │ ├── feedback.html │ ├── login.html │ └── search.html ├── screenshots/ │ ├── homepage.png │ ├── scannerpage.png ├── Project_Report_SQLi_Scanner.pdf ├── scanreport.png ├── requirements.txt └── README.md ``` </pre>
 
 ---
 
