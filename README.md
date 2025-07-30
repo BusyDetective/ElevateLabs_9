@@ -92,7 +92,7 @@ Screenshots of the UI are included in the /screenshots and /static/images/ direc
 - Designed for running locally with intentionally vulnerable pages for practice.
 
 ### 👤 Author
-Kaivan Shah
-Cybersecurity | Penetration Testing
-Email: kaivanshah1810@gmail.com 
-GitHub: https://github.com/BusyDetective
+- Kaivan Shah
+- Cybersecurity | Penetration Testing
+- Email: kaivanshah1810@gmail.com 
+- GitHub: https://github.com/BusyDetective
