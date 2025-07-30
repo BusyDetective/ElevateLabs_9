@@ -54,15 +54,15 @@ WebVulnScanner/
 ## 🚀 How to Run
 
 ### 1.Clone the repo:
-git clone https://github.com/BusyDetective/ElevateLabs_9.git
-cd ElevateLabs_9
+- git clone https://github.com/BusyDetective/ElevateLabs_9.git
+- cd ElevateLabs_9
 
 ### 2. Install dependencies:
 pip install -r requirements.txt
 
 ### 3. Create and activate a virtual environment:
-python -m venv venv
-source venv/bin/activate      # or venv\Scripts\activate on Windows 
+- python -m venv venv
+- source venv/bin/activate      # or venv\Scripts\activate on Windows 
 
 ### 4. Set up the database:
 python setup_db.py
