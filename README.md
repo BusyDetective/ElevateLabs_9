@@ -21,8 +21,7 @@ A lightweight **Web Application Vulnerability Scanner** with a web-based interfa
 ---
 
 ## 📁 Project Structure
-<pre> 
-ElevateLabs_9/ 
+<pre> ElevateLabs_9/ 
 ├── app.py
 ├── setup_db.py
 ├── database.db
