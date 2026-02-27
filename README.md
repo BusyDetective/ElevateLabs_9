@@ -1,59 +1,74 @@
-# 🔐 Web Application Vulnerability Scanner (Flask-Based)
+# 🔐 Web Application Security Testing Lab (Flask-Based)
 
-A Python-based **Web Application Vulnerability Scanner** built with Flask that automates detection of common OWASP Top 10 vulnerabilities including SQL Injection (SQLi), Cross-Site Scripting (XSS), and CSRF misconfigurations.
+A full-stack **Web Application Security Testing Lab** built with Flask that combines:
 
-This project simulates a real-world VAPT workflow including automated payload injection, response analysis, severity classification, and PDF report generation.
+- 🧪 Intentionally vulnerable web application endpoints  
+- 🔍 Automated vulnerability scanner  
+- 📊 Severity classification & PDF report generation  
 
----
-
-## 🚀 Key Features
-
-- 🔎 Automated scanning of HTML forms and GET parameters
-- 🧪 Payload-based SQL Injection detection using response analysis
-- 💉 Reflected XSS detection via script injection testing
-- 🛡️ Basic CSRF vulnerability detection through token inspection
-- 📊 Severity classification (Critical / High / Medium / Low)
-- 📄 Automated PDF vulnerability report export
-- 🧩 Built-in intentionally vulnerable demo endpoints for testing
+This project simulates a real-world VAPT (Vulnerability Assessment & Penetration Testing) workflow by integrating both exploitation scenarios and automated detection logic into a single platform.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Project Overview
 
-- **Backend:** Python, Flask
-- **Scanning Engine:** Custom scanner_core.py
-- **Payload Handling:** Modular payload injection logic
-- **Parsing:** BeautifulSoup
-- **Reporting:** fpdf (PDF generation)
-- **Database:** SQLite
-- **Environment:** Kali Linux / Localhost testing
+This lab environment includes:
+
+### 🛠 Vulnerable Application Modules
+- `/login` – Authentication bypass simulation (SQL Injection)
+- `/search` – Query-based SQL injection testing
+- `/feedback` – Reflected Cross-Site Scripting (XSS) simulation
+- Forms intentionally lacking CSRF protection for detection testing
+
+### 🔎 Integrated Vulnerability Scanner
+- Automated form crawling
+- Payload injection engine
+- Response analysis & vulnerability detection
+- Severity classification (Critical / High / Medium / Low)
+- Automated PDF vulnerability report export
+
+This allows testing both:
+- Manual exploitation techniques  
+- Automated vulnerability scanning logic  
 
 ---
 
-## 🧠 Scanner Architecture
+## 🧠 Architecture & Workflow
 
-The scanner follows this workflow:
+1. User launches vulnerable web app
+2. Scanner module crawls target endpoints
+3. Forms & parameters are extracted
+4. SQLi / XSS payloads are injected
+5. HTTP responses are analyzed for exploit indicators
+6. Vulnerabilities are classified
+7. Structured PDF report is generated
 
-1. Crawl target page
-2. Extract forms and input fields
-3. Inject vulnerability-specific payloads
-4. Analyze HTTP responses
-5. Detect indicators of exploitation
-6. Classify severity
-7. Generate structured PDF report
-
-Core scanning logic is implemented in:
+Core scanning logic:
 scanner/scanner_core.py
----
+
+Main Flask application:
+app.py
+
 ---
 
-## 📊 Vulnerability Detection Methods
+## 📊 Vulnerabilities Demonstrated
 
-| Vulnerability | Detection Logic |
-|--------------|-----------------|
-| SQL Injection | Injection of SQL payloads + detection of authentication bypass or alert triggers |
-| XSS | Script payload reflection in HTTP response body |
-| CSRF | Detection of missing CSRF tokens in form submissions |
+| Vulnerability | Implementation | Detection Method |
+|--------------|---------------|------------------|
+| SQL Injection | Authentication & search-based injection | Payload injection + response indicator analysis |
+| XSS | Reflected script execution in feedback form | Script payload reflection detection |
+| CSRF | Missing CSRF token protection | Token presence inspection |
+
+---
+
+## 🛠 Tech Stack
+
+**Backend:** Python, Flask  
+**Scanning Engine:** Custom modular scanner  
+**Parsing:** BeautifulSoup  
+**Reporting:** fpdf (PDF generation)  
+**Database:** SQLite  
+**Environment:** Kali Linux / Localhost  
 
 ---
 
