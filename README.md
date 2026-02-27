@@ -1,22 +1,59 @@
-# WebVulnScanner 🔍
+# 🔐 Web Application Vulnerability Scanner (Flask-Based)
 
-A lightweight **Web Application Vulnerability Scanner** with a web-based interface built using **Flask**. This tool is designed to identify common OWASP vulnerabilities such as:
+A Python-based **Web Application Vulnerability Scanner** built with Flask that automates detection of common OWASP Top 10 vulnerabilities including SQL Injection (SQLi), Cross-Site Scripting (XSS), and CSRF misconfigurations.
 
-- ✅ SQL Injection (SQLi)
-- ✅ Cross-Site Scripting (XSS)
-- ✅ Cross-Site Request Forgery (CSRF)
+This project simulates a real-world VAPT workflow including automated payload injection, response analysis, severity classification, and PDF report generation.
 
 ---
 
-## 🧩 Features
+## 🚀 Key Features
 
-- 🔍 **Automated vulnerability scanning** of forms and GET parameters
-- ⚠️ **SQLi detection** using payload analysis and response inspection
-- ⚠️ **XSS detection** by injecting payloads and detecting reflected scripts
-- ⚠️ **Basic CSRF detection** by analyzing missing tokens in forms
-- 📄 **PDF export** of scan results
-- 📷 **UI screenshots** and a detailed project report
-- 🖼️ **Vulnerable demo pages** (`/login`, `/feedback`, `/search`) for testing
+- 🔎 Automated scanning of HTML forms and GET parameters
+- 🧪 Payload-based SQL Injection detection using response analysis
+- 💉 Reflected XSS detection via script injection testing
+- 🛡️ Basic CSRF vulnerability detection through token inspection
+- 📊 Severity classification (Critical / High / Medium / Low)
+- 📄 Automated PDF vulnerability report export
+- 🧩 Built-in intentionally vulnerable demo endpoints for testing
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Python, Flask
+- **Scanning Engine:** Custom scanner_core.py
+- **Payload Handling:** Modular payload injection logic
+- **Parsing:** BeautifulSoup
+- **Reporting:** fpdf (PDF generation)
+- **Database:** SQLite
+- **Environment:** Kali Linux / Localhost testing
+
+---
+
+## 🧠 Scanner Architecture
+
+The scanner follows this workflow:
+
+1. Crawl target page
+2. Extract forms and input fields
+3. Inject vulnerability-specific payloads
+4. Analyze HTTP responses
+5. Detect indicators of exploitation
+6. Classify severity
+7. Generate structured PDF report
+
+Core scanning logic is implemented in:
+scanner/scanner_core.py
+---
+---
+
+## 📊 Vulnerability Detection Methods
+
+| Vulnerability | Detection Logic |
+|--------------|-----------------|
+| SQL Injection | Injection of SQL payloads + detection of authentication bypass or alert triggers |
+| XSS | Script payload reflection in HTTP response body |
+| CSRF | Detection of missing CSRF tokens in form submissions |
 
 ---
 
